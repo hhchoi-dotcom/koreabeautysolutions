@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Authentic Korean Beauty | PT Korea Beauty Solutions</title>
+  <meta name="description" content="PT Korea Beauty Solutions is the trusted bridge between Korea's finest beauty brands and the Indonesian market. Authentic K-Beauty, salon professional hair care, and KOL marketing." />
+  <meta name="keywords" content="K-beauty, Korean hair care, KOL, Authentic Korean beauty products Indonesia, PT Korea Beauty Solutions, BPOM registration" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --white:  #FFFFFF;
+      --off:    #F0F3EE;
+      --navy:   #2C2416;
+      --mid:    #5C5440;
+      --light:  #8A8870;
+      --border: #D8D5C4;
+      --gold:   #9B7E5A;
+      --gold2:  #C4A878;
+      --serif:  'Playfair Display', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 80px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo img { height: 68px; width: auto; display: block; object-fit: contain; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--mid);
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .nav-dropdown-trigger::after {
+      content: '';
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      margin-top: 1px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown:hover .nav-dropdown-trigger::after { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 0;
+      min-width: 172px;
+      list-style: none;
+      box-shadow: 0 10px 32px rgba(0,0,0,0.12);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 300;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown-menu li a { display: block; padding: 10px 20px; font-size: 13px !important; font-weight: 600 !important; color: var(--mid); white-space: nowrap; }
+    .nav-dropdown-menu li a:hover { background: var(--off); color: var(--gold); }
+
+    .nav-shopee {
+      background: #EE4D2D !important;
+      color: #fff !important;
+      padding: 10px 20px;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      display: flex !important;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.25s !important;
+    }
+    .nav-shopee:hover { background: #d43e21 !important; color: #fff !important; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); }
+
+    /* ── HERO ── */
+    .about-hero {
+      padding-top: 80px;
+      min-height: 500px;
+      background: #F7F2EB;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold2), var(--gold), var(--gold2));
+    }
+
+    .about-hero-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .about-hero-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .about-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-hero p {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--mid);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 48px; }
+    .sec-inner { max-width: 1140px; margin: 0 auto; }
+
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .sec-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .sec-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    /* ── STORY ── */
+    #story { background: var(--white); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .story-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── MISSION ── */
+    #mission { background: var(--off); }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .mission-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      transition: all 0.3s;
+    }
+
+    .mission-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(155,126,90,0.12);
+      transform: translateY(-4px);
+    }
+
+    .mission-icon {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .mission-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ── KEY COMPETENCIES ── */
+    #values {
+      background: #F7F2EB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .competency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .competency-card {
+      position: relative;
+      background: var(--off);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .competency-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 56px rgba(44,36,22,0.12);
+    }
+
+    .competency-card-top {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 각 카드별 배경 — 밝은 웜톤 */
+    .competency-card:nth-child(1) .competency-card-top { background: linear-gradient(135deg, #EDE0CE 0%, #E0D0BC 100%); }
+    .competency-card:nth-child(2) .competency-card-top { background: linear-gradient(135deg, #D8EAE4 0%, #C8DED6 100%); }
+    .competency-card:nth-child(3) .competency-card-top { background: linear-gradient(135deg, #EDE6D8 0%, #E0D8C8 100%); }
+
+    .competency-card-top-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .competency-icon-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .competency-icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(155,126,90,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .competency-icon-box svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--gold);
+    }
+
+    .competency-icon-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .competency-card-body {
+      padding: 28px 28px 32px;
+    }
+
+    .competency-card-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .competency-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .competency-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .competency-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 6px;
+    }
+
+    .value-item h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .value-item p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ── BRANDS STRIP ── */
+    #our-brands { background: var(--white); }
+
+    .brands-row {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .brand-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.25s;
+    }
+
+    .brand-chip:hover { transform: translateY(-4px); }
+
+    .brand-chip img {
+      height: 72px;
+      object-fit: contain;
+      filter: grayscale(30%);
+      transition: filter 0.25s;
+    }
+
+    .brand-chip:hover img { filter: grayscale(0%); }
+
+    .brand-chip span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    /* ── CTA ── */
+    #cta-section {
+      background: var(--off);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    #cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    #cta-section p {
+      font-size: 16px;
+      color: var(--mid);
+      margin-bottom: 40px;
+    }
+
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-white {
+      background: var(--gold);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.25s;
+    }
+
+    .btn-white:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--border);
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.25s;
+    }
+
+    .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); padding: 48px 48px 36px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.25); }
+    .footer-logo img { height: 52px; object-fit: contain; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; position: fixed; top: 80px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 20px; gap: 16px; border-bottom: 1px solid var(--border); z-index: 199; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .nav-shopee { display: none !important; }
+      section { padding: 64px 24px; }
+      .about-hero-inner { padding: 72px 24px; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .competency-grid { grid-template-columns: 1fr; }
+      footer { padding: 48px 24px 36px; }
+    }
+  </style>
+  <link rel="stylesheet" href="premium.css">
+</head>
+<body>
+  <div id="custom-cursor"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <a href="b2c.html" style="display:block;line-height:0;">
+        <img src="../KBS_logo.png" alt="PT Korea Beauty Solutions" />
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html" style="color:var(--gold);">About Us</a></li>
+      <li><a href="b2c.html#elabore">Salon Professional</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger" onclick="return false;">Premium Product</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="b2c.html#curlyshyll">Curlyshyll</a></li>
+          <li><a href="b2c.html#morethan8">Morethan8</a></li>
+          <li><a href="b2c.html#livegain">Livegain</a></li>
+        </ul>
+      </li>
+      <li><a href="b2c.html#contact">Contact</a></li>
+      <li><a href="https://shopee.co.id/koreabeautysolutions.id" target="_blank" class="nav-shopee">🛒 Shop on Shopee</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="about-hero-deco" style="width:600px;height:600px;top:-200px;right:-150px;"></div>
+    <div class="about-hero-deco" style="width:400px;height:400px;bottom:-150px;left:-100px;"></div>
+    <div class="about-hero-inner fade-up">
+      <p class="about-hero-label">Our Story</p>
+      <h1>Bringing <em>Korean Beauty</em><br/>to Indonesia</h1>
+      <p>PT Korea Beauty Solutions is your trusted bridge between Korea's finest beauty brands and the Indonesian market — from sourcing and BPOM registration to distribution and content creation.</p>
+    </div>
+  </div>
+
+  <!-- PREMIUM MARQUEE -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span class="marquee-text">Premium Korean Beauty <em>Authentic Salon Care</em></span>
+      <span class="marquee-text">Professional Hair Solutions <em>KOL Marketing</em></span>
+      <span class="marquee-text">KBS Distribution <em>Directly to You</em></span>
+      <span class="marquee-text">Premium Korean Beauty <em>Authentic Salon Care</em></span>
+      <span class="marquee-text">Professional Hair Solutions <em>KOL Marketing</em></span>
+      <span class="marquee-text">KBS Distribution <em>Directly to You</em></span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="sec-inner">
+      <div class="story-grid">
+        <div class="story-text fade-up">
+          <p class="sec-label">Who We Are</p>
+          <h2 class="sec-title">A Passion for Authentic Korean Beauty</h2>
+          <div class="sec-divider"></div>
+          <p>PT Korea Beauty Solutions (KBS) was founded with a single mission: to bring authentic, high-quality Korean beauty products to Indonesia. We work directly with Korean manufacturers and brand owners to ensure every product we carry meets the highest standards of quality and authenticity.</p>
+          <p>Our team combines deep expertise in the Korean beauty industry with on-the-ground knowledge of the Indonesian market — giving our brand partners and customers the best of both worlds.</p>
+          <p>Based in Tendean, Jakarta Selatan, we serve both individual consumers and business partners across Indonesia through a growing network of salons, retailers, and e-commerce channels.</p>
+        </div>
+        <div class="story-img fade-up delay-1">
+          <img src="../KBS_logo.png" alt="PT Korea Beauty Solutions"
+            style="object-fit:contain; padding:48px; background:var(--off);" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="sec-inner">
+      <p class="sec-label fade-up">What We Stand For</p>
+      <h2 class="sec-title fade-up" style="color:#fff;">Our Mission</h2>
+      <div class="sec-divider fade-up"></div>
+      <div class="mission-grid">
+        <div class="mission-card fade-up">
+          <span class="mission-icon">✨</span>
+          <h3>Authenticity First</h3>
+          <p>Every product we distribute is 100% authentic, sourced directly from our Korean factory and brand partners — no grey market, no compromises.</p>
+        </div>
+        <div class="mission-card fade-up delay-1">
+          <span class="mission-icon">🇮🇩</span>
+          <h3>Indonesia-Ready</h3>
+          <p>We handle BPOM registration, import compliance, and local market adaptation so brands can enter Indonesia smoothly and legally.</p>
+        </div>
+        <div class="mission-card fade-up delay-2">
+          <span class="mission-icon">🤝</span>
+          <h3>Partnership-Driven</h3>
+          <p>We grow together with our partners — providing end-to-end support from distribution and salon networks to digital content and marketing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY COMPETENCIES -->
+  <section id="values">
+    <div class="sec-inner">
+      <p class="sec-label fade-up">What We Do Best</p>
+      <h2 class="sec-title fade-up">KBS Key Competencies</h2>
+      <div class="sec-divider fade-up"></div>
+
+      <div class="competency-grid">
+
+        <!-- 3PL SERVICES -->
+        <div class="competency-card fade-up">
+          <div class="competency-card-top">
+            <div class="competency-card-top-deco" style="width:300px;height:300px;top:-100px;right:-80px;"></div>
+            <div class="competency-card-top-deco" style="width:180px;height:180px;bottom:-60px;left:-40px;"></div>
+            <div class="competency-icon-wrap">
+              <div class="competency-icon-box">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+              </div>
+              <span class="competency-icon-label">Fulfillment</span>
+            </div>
+          </div>
+          <div class="competency-card-body">
+            <div class="competency-card-title">3PL Services<br/>(Fulfillment)</div>
+            <ul class="competency-list">
+              <li>Scalable Global Network</li>
+              <li>Inventory and Delivery Management</li>
+              <li>Smart Warehouse &amp; Fast Shipping</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BPOM REGISTRATION -->
+        <div class="competency-card fade-up delay-1">
+          <div class="competency-card-top">
+            <div class="competency-card-top-deco" style="width:280px;height:280px;top:-80px;left:-60px;"></div>
+            <div class="competency-card-top-deco" style="width:160px;height:160px;bottom:-50px;right:-30px;"></div>
+            <div class="competency-icon-wrap">
+              <div class="competency-icon-box">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM11.5 14c0 1.38-1.12 2.5-2.5 2.5S6.5 15.38 6.5 14s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5zm0-5H8v1h3.5V9zm4 4h-3v1h3v-1zm0-2h-3v1h3v-1z"/>
+                </svg>
+              </div>
+              <span class="competency-icon-label">Compliance</span>
+            </div>
+          </div>
+          <div class="competency-card-body">
+            <div class="competency-card-title">In-House BPOM<br/>Registration</div>
+            <ul class="competency-list">
+              <li>Direct In-House Processing</li>
+              <li>Documents &amp; Lab Testing</li>
+              <li>Submission &amp; Renewal</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONTENT & INFLUENCER MARKETING -->
+        <div class="competency-card fade-up delay-2">
+          <div class="competency-card-top">
+            <div class="competency-card-top-deco" style="width:320px;height:320px;top:-120px;right:-100px;"></div>
+            <div class="competency-card-top-deco" style="width:200px;height:200px;bottom:-70px;left:-50px;"></div>
+            <div class="competency-icon-wrap">
+              <div class="competency-icon-box">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/>
+                </svg>
+              </div>
+              <span class="competency-icon-label">Marketing</span>
+            </div>
+          </div>
+          <div class="competency-card-body">
+            <div class="competency-card-title">Content &amp; Influencer<br/>Marketing</div>
+            <ul class="competency-list">
+              <li>High-Impact Content &amp; Multi-media</li>
+              <li>Studio and Content House</li>
+              <li>Campaign Management &amp; UGC</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR BRANDS -->
+  <section id="our-brands">
+    <div class="sec-inner" style="text-align:center;">
+      <p class="sec-label fade-up" style="text-align:center;">What We Carry</p>
+      <h2 class="sec-title fade-up">Our Brand Portfolio</h2>
+      <div class="sec-divider fade-up" style="margin:16px auto 0;"></div>
+      <div class="brands-row fade-up delay-1">
+        <a class="brand-chip" href="b2c.html#elabore">
+          <img src="../Elabore_logo.png" alt="Elabore" />
+          <span>Elabore</span>
+        </a>
+        <a class="brand-chip" href="b2c.html#curlyshyll">
+          <img src="../Curlyshyll_logo.png" alt="Curlyshyll" />
+          <span>Curlyshyll</span>
+        </a>
+        <a class="brand-chip" href="b2c.html#livegain">
+          <img src="../livegain_logo.png" alt="Livegain" />
+          <span>Livegain</span>
+        </a>
+        <a class="brand-chip" href="b2c.html#morethan8">
+          <img src="../morethan8_logo.png" alt="Morethan8" />
+          <span>Morethan8</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-section">
+    <div class="sec-inner fade-up">
+      <h2>Ready to Work With Us?</h2>
+      <p>Whether you're a consumer looking for premium Korean beauty or a business exploring partnership opportunities, we'd love to hear from you.</p>
+      <div class="cta-btns">
+        <a href="b2c.html#contact" class="btn-white">Get in Touch</a>
+        <a href="b2b.html" class="btn-outline-white">OEM/ODM Partnership</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="../KBS_logo.png" alt="PT Korea Beauty Solutions"
+            style="filter:brightness(0) invert(1); opacity:0.5;" />
+        </div>
+        <div class="footer-copy">© 2025 PT Korea Beauty Solutions. All rights reserved. · Tendean, Jakarta Selatan, Indonesia</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Mobile nav toggle */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    /* Intersection Observer for Fade-up animations */
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
+  <script src="premium.js"></script>
+</body>
+</html>

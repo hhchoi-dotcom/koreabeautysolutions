@@ -1,0 +1,112 @@
+/* PREMIUM UI/UX STYLES */
+
+/* ── CUSTOM CURSOR ── */
+body {
+  /* cursor: none; Optional: hide default cursor, but keeping it visible as fallback is safer */
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background-color: var(--gold, #9B7E5A);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;
+  mix-blend-mode: difference; /* Creates a premium invert effect */
+}
+
+#custom-cursor.hovered {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.8);
+  mix-blend-mode: normal;
+}
+
+/* ── MARQUEE TICKER ── */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy, #2C2416);
+  color: #fff;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-text {
+  font-family: var(--serif, 'Playfair Display', serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-right: 40px;
+}
+
+.marquee-text em {
+  font-style: italic;
+  color: var(--gold, #9B7E5A);
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── MAGAZINE ASYMMETRIC OVERLAPS ── */
+.asymmetric-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.asymmetric-wrap .overlap-text {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  z-index: 2;
+  background: var(--white, #fff);
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  max-width: 80%;
+}
+
+.asymmetric-wrap .overlap-img {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* ── ADDITIONAL REVEAL EFFECTS ── */
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s;
+}
+
+.reveal-text.visible span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
