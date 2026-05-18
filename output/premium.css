@@ -1,29 +1,5 @@
 /* PREMIUM UI/UX STYLES */
 
-/* ── CUSTOM CURSOR ── */
-body {
-  /* cursor: none; Optional: hide default cursor, but keeping it visible as fallback is safer */
-}
-
-#custom-cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 12px; height: 12px;
-  background-color: var(--gold, #9B7E5A);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;
-  mix-blend-mode: difference; /* Creates a premium invert effect */
-}
-
-#custom-cursor.hovered {
-  width: 48px;
-  height: 48px;
-  background-color: rgba(255, 255, 255, 0.8);
-  mix-blend-mode: normal;
-}
 
 /* ── MARQUEE TICKER ── */
 .marquee-container {
@@ -109,4 +85,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* 모바일: 커스텀 커서 비활성화, parallax 비활성화 */
+@media (max-width: 768px) {
+  #custom-cursor { display: none; }
+  .parallax-bg { background-attachment: scroll; }
 }

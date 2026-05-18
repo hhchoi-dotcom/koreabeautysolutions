@@ -557,24 +557,83 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; position: fixed; top: 80px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 20px; gap: 16px; border-bottom: 1px solid var(--border); z-index: 199; }
+      nav { padding: 0 20px; height: 70px; }
+      .nav-logo img { height: 52px; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px; left: 0; right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 16px 20px 24px;
+        gap: 4px;
+        border-bottom: 1px solid var(--border);
+        z-index: 199;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+      }
       .nav-links.open { display: flex; }
       .nav-toggle { display: flex; }
       .nav-shopee { display: none !important; }
-      section { padding: 64px 24px; }
-      .about-hero-inner { padding: 72px 24px; }
-      .story-grid { grid-template-columns: 1fr; gap: 40px; }
-      .mission-grid { grid-template-columns: 1fr; }
-      .competency-grid { grid-template-columns: 1fr; }
-      footer { padding: 48px 24px 36px; }
+
+      /* 모바일 드롭다운 펼침 */
+      .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 4px 0 4px 16px;
+        background: transparent;
+        min-width: unset;
+      }
+      .nav-dropdown-menu li a { padding: 7px 0; font-size: 13px !important; color: var(--light); }
+      .nav-dropdown-trigger::after { display: none; }
+
+      section { padding: 56px 20px; }
+      .about-hero { min-height: 400px; }
+      .about-hero-inner { padding: 64px 20px; }
+      .about-hero h1 { font-size: clamp(28px, 7vw, 44px); }
+
+      .story-grid { grid-template-columns: 1fr; gap: 32px; }
+      .story-img { aspect-ratio: 16/9; }
+
+      .mission-grid { grid-template-columns: 1fr; gap: 16px; }
+      .mission-card { padding: 28px 24px; }
+
+      .competency-grid { grid-template-columns: 1fr; gap: 20px; }
+      .competency-card-top { height: 160px; }
+
+      .brands-row { gap: 32px; }
+
+      footer { padding: 40px 20px 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 48px 16px; }
+      .about-hero-inner { padding: 56px 16px; }
+      .about-hero h1 { font-size: clamp(26px, 8vw, 36px); }
+      .about-hero p { font-size: 15px; }
+
+      .mission-card { padding: 24px 20px; }
+      .competency-card-top { height: 140px; }
+      .competency-card-body { padding: 20px 20px 24px; }
+      .competency-card-title { font-size: 15px; }
+      .competency-list li { font-size: 12px; }
+
+      .cta-btns { flex-direction: column; align-items: center; }
+      .btn-white, .btn-outline-white { width: 100%; max-width: 280px; text-align: center; }
+
+      footer { padding: 32px 16px 24px; }
     }
   </style>
   <link rel="stylesheet" href="premium.css">
 </head>
 <body>
-  <div id="custom-cursor"></div>
-
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
