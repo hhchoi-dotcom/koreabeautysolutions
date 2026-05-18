@@ -1254,6 +1254,32 @@
 
   <script>
     /* Mobile nav toggle */
+    /* ── CONTACT FORM AJAX ── */
+    document.querySelector('form[name="b2b-contact"]').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        form.innerHTML = `
+          <div style="text-align:center;padding:48px 24px;">
+            <div style="font-size:52px;margin-bottom:16px;">✓</div>
+            <h3 style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:10px;">Inquiry Sent!</h3>
+            <p style="color:var(--light);font-size:15px;">Thank you! We'll get back to you shortly.</p>
+          </div>`;
+      } catch(err) {
+        btn.textContent = 'Send Inquiry';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));

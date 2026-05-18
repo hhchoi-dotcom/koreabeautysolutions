@@ -2151,6 +2151,32 @@
     renderBrandCarousel();
     startBrandAuto();
 
+    /* ── CONTACT FORM AJAX ── */
+    document.querySelector('form[name="contact"]').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        form.innerHTML = `
+          <div style="text-align:center;padding:48px 24px;">
+            <div style="font-size:52px;margin-bottom:16px;">✓</div>
+            <h3 style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:10px;">Message Sent!</h3>
+            <p style="color:var(--mid);font-size:15px;">Thank you! We'll get back to you shortly.</p>
+          </div>`;
+      } catch(err) {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
     /* ── HERO CAROUSEL ── */
     const slidesEl = document.getElementById('heroSlides');
     const heroDots = document.querySelectorAll('#heroDots .dot');
