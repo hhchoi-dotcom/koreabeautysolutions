@@ -3,13 +3,6 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://koreabeauty.id</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://koreabeauty.id"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
     <loc>https://koreabeauty.id/output/b2c.html</loc>
     <xhtml:link rel="alternate" hreflang="id" href="https://koreabeauty.id/output/b2c.html"/>
     <changefreq>monthly</changefreq>
