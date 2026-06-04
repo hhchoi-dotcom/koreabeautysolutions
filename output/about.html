@@ -135,11 +135,19 @@
     .about-hero {
       padding-top: 80px;
       min-height: 500px;
-      background: #F7F2EB;
+      background: url('../HOME PAGE REAL KOREA-01.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(247, 242, 235, 0.72);
+      z-index: 1;
     }
 
     .about-hero::after {
@@ -148,6 +156,7 @@
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(to right, var(--gold2), var(--gold), var(--gold2));
+      z-index: 3;
     }
 
     .about-hero-deco {
